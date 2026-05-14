@@ -1,6 +1,16 @@
-﻿namespace WebApplication7.Services;
+﻿using WebApplication7.Dtos;
 
-public class IPcService
+namespace WebApplication7.Services;
+
+public interface IPcService
 {
-    
+    Task<List<PcListDto>> GetAllAsync();
+
+    Task<PcDetailsDto?> GetByIdWithComponentsAsync(int id);
+
+    Task<PcListDto> CreateAsync(PcRequestDto request);
+
+    Task<bool> UpdateAsync(int id, PcRequestDto request);
+
+    Task<bool> DeleteAsync(int id);
 }
